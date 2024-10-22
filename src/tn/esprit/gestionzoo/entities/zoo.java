@@ -4,12 +4,15 @@ package tn.esprit.gestionzoo.entities;
 
 public class zoo {
     private animal[] animals;
+    private aquatic[] aquaticanimals;
     private String name;
     private String city;
     private final int nbrcages = 25;
     private int animalCount ;
+    private int aquaCount ;
     public zoo (String name, String city) {
         animals = new animal[nbrcages];
+        aquaticanimals = new aquatic[10];
         setName(name);  // Utilisation du setter pour le nom
         this.city = city;
         animalCount = 0;
@@ -103,4 +106,49 @@ public class zoo {
             return null;  // Les deux zoos ont le même nombre d'animaux
         }
     }
+    public void addAquaticAnimal(aquatic aquatic)
+    {
+        if(aquaCount < aquaticanimals.length){
+            aquaticanimals[aquaCount] = aquatic;
+            aquaCount++;
+        }
+        else {
+            System.out.println("le zoo est plein d'animaux aquatiques");
+        }
+    }
+    public void displayAquaticAnimals() {
+        System.out.println("Animaux aquatiques dans le zoo et leur façon de nager:");
+        for (int i = 0; i < aquaCount; i++) {
+            System.out.println(aquaticanimals[i].getName() + " : ");
+            aquaticanimals[i].swim(); // Appel de la méthode swim() pour chaque animal
+        }
+    }
+   public float maxPenguinSwimmingDepth(){
+        float max=0;
+        for (int i = 0; i < aquaCount; i++) {
+            if (aquaticanimals[i] instanceof penguin ) {
+                penguin peng = (penguin) aquaticanimals[i]; // Cast en Penguin
+                if(peng.getswimmingdepth()>max)
+                {
+                    max=peng.getswimmingdepth();
+                }
+            }
+        }
+        return max;
+    }
+    public void displayNumberOfAquaticsByType(){
+        int nbrdp=0;
+        int nbrpg=0;
+        for (int i = 0; i < aquaCount; i++) {
+            if (aquaticanimals[i] instanceof penguin ) {
+                nbrpg++;
+            }
+            else if(aquaticanimals[i] instanceof dolphin) {
+                nbrdp++;
+            }
+        }
+        System.out.println("le nombre de dauphins est égal a: " + nbrdp);
+        System.out.println("le nombre de pingouins est égal a: " + nbrpg);
+    }
+
 }

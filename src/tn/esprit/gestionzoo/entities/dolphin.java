@@ -7,6 +7,9 @@ public class dolphin extends aquatic{
         super(family, name, age, isMammal, habitat);
         this.swimmingspeed = swimmingspeed;
     }
+    public float getSwimmingspeed() {
+        return swimmingspeed;
+    }
     public void swim() {
         System.out.println("This dolphin is swimming.");
     }
