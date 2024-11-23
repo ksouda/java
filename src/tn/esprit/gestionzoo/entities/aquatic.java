@@ -4,7 +4,7 @@ public abstract class aquatic extends animal {
     String habitat;
     public aquatic() {}
     public aquatic(String family, String name, int age, boolean isMammal, String habitat) {
-        super(family, name,age,isMammal);
+        super(family,name,age,isMammal);
         this.habitat = habitat;
     }
     public abstract void swim() ;
