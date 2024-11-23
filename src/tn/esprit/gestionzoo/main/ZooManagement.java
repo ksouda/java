@@ -1,12 +1,6 @@
 package tn.esprit.gestionzoo.main;
 
-import tn.esprit.gestionzoo.entities.animal;
-import tn.esprit.gestionzoo.entities.zoo;
-import tn.esprit.gestionzoo.entities.terrestrial;
-import tn.esprit.gestionzoo.entities.dolphin;
-import tn.esprit.gestionzoo.entities.penguin ;
-import tn.esprit.gestionzoo.entities.ZooFullException ;
-import tn.esprit.gestionzoo.entities.InvalidAgeException ;
+import tn.esprit.gestionzoo.entities.*;
 
 public class ZooManagement {
     public static void main(String[] args) {
@@ -22,7 +16,10 @@ public class ZooManagement {
         animal tiger = new animal("Félins", "Tigre", 4, true);
         animal elephant = new animal("Éléphants", "Éléphant", -5, true);
         animal panda = new animal("Ursidés", "Panda", 5, true);
-        try{
+        pg1.eatMeat(Food.MEAT);
+        dp.eatMeat(Food.PLANT);
+        chat.eatPlantAndMeat(Food.BOTH);
+        /*try{
             zoo1.addanimal(lion);
             System.out.println("Nombre d'animaux : " + zoo1.getAnimalCount());
             zoo1.addanimal(tiger);
@@ -35,8 +32,7 @@ public class ZooManagement {
             System.out.println("Erreur : " + e.getMessage());
         }
 
-
-        /* myzoo.displayAnimals();
+        myzoo.displayAnimals();
         myzoo.addanimal(lion);              // Ajout réussi
         myzoo.addanimal(tiger);             // Ajout réussi
         myzoo.addanimal(elephant);          // Ajout réussi
